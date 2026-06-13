@@ -1,0 +1,29 @@
+import { IoBagOutline } from "react-icons/io5";
+import "./Navbar.css";
+
+export default function Navbar() {
+	return (
+		<nav className="navbar navbar-expand-sm py-3 d-flex">
+			<div className="container">
+				<a href="#" className="navbar-brand" aria-label="logo">
+					iStore
+				</a>
+
+				<ul className="navbar-nav me-auto-ms-3">
+					<li className="nav-item">
+						<a href="#" className="nav-link" aria-label="navbar-link">
+							Home
+						</a>
+					</li>
+				</ul>
+
+				<div className="bag-box">
+					<a href="#" className="bag">
+						<IoBagOutline className="text-black" />
+						<span className="bag-products-counter">0</span>
+					</a>
+				</div>
+			</div>
+		</nav>
+	);
+}
