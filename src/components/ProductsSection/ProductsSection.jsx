@@ -23,7 +23,17 @@ export default function ProductsSection({ title, info }) {
 									<p className="card-text fw-bold">{product.title}</p>
 									<p className="price">${product.price}</p>
 									<br />
-									<a href="#" className="btn btn-danger">
+									<a
+										href="javascript:void(0)"
+										className="btn btn-danger"
+										onClick={() => {
+											contextData.setIsShowToast(true);
+
+											setTimeout(() => {
+												contextData.setIsShowToast(false);
+											}, 2500);
+										}}
+									>
 										Add to Cart
 									</a>
 									<a
