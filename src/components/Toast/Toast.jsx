@@ -11,6 +11,7 @@ export default function Toast() {
 				<div className="d-flex justify-content-between align-items-center">
 					<button
 						type="button"
+						aria-label="Close notification"
 						className="btn btn-close btn-close-white ms-3"
 						onClick={() => {
 							contextData.setIsShowToast(false);

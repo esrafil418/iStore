@@ -1,14 +1,19 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import "./ProductsSection.css";
 import productsContext from "../../contexts/ProductsContext";
-export default function ProductsSection({ title, info }) {
+export default function ProductsSection() {
 	const contextData = useContext(productsContext);
+	const toastTimeoutRef = useRef(null);
 
 	const addToCart = (product) => {
 		contextData.setIsShowToast(true);
 
-		setTimeout(() => {
+		if (toastTimeoutRef.current) {
+			clearTimeout(toastTimeoutRef.current);
+		}
+		toastTimeoutRef.current = setTimeout(() => {
 			contextData.setIsShowToast(false);
+			toastTimeoutRef.current = null;
 		}, 2500);
 
 		let isInUserCart = contextData.userCart.some(
@@ -61,7 +66,6 @@ export default function ProductsSection({ title, info }) {
 									<br />
 									<button
 										type="button"
-										href="javascript:void(0)"
 										className="btn btn-danger"
 										onClick={() => addToCart(product)}
 									>
