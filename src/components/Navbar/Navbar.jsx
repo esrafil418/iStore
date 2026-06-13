@@ -9,7 +9,7 @@ export default function Navbar() {
 					iStore
 				</a>
 
-				<ul className="navbar-nav me-auto-ms-3">
+				<ul className="navbar-nav me-auto ms-3">
 					<li className="nav-item">
 						<a href="#" className="nav-link" aria-label="navbar-link">
 							Home
@@ -19,7 +19,7 @@ export default function Navbar() {
 
 				<div className="bag-box">
 					<a href="#" className="bag">
-						<IoBagOutline className="text-black" />
+						<IoBagOutline className="text-white" />
 						<span className="bag-products-counter">0</span>
 					</a>
 				</div>
