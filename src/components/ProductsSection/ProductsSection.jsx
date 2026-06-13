@@ -34,17 +34,33 @@ export default function ProductsSection({ title, info }) {
 												contextData.setIsShowToast(false);
 											}, 2500);
 
-											let newUserCartProduct = {
-												id: contextData.userCart.length + 1,
-												title: product.title,
-												price: product.price,
-												count: 1,
-											};
+											let isInUserCart = contextData.userCart.some(
+												(bagProduct) => bagProduct.title === product.title,
+											);
 
-											contextData.setUserCart((prevProduct) => [
-												...prevProduct,
-												newUserCartProduct,
-											]);
+											if (!isInUserCart) {
+												let newUserCartProduct = {
+													id: contextData.userCart.length + 1,
+													title: product.title,
+													price: product.price,
+													count: 1,
+												};
+
+												contextData.setUserCart((prevProduct) => [
+													...prevProduct,
+													newUserCartProduct,
+												]);
+											} else {
+												let userCart = [...contextData.userCart];
+
+												userCart.map((bagProduct) => {
+													if (bagProduct.title === product.title) {
+														bagProduct.count += 1;
+														return true;
+													}
+												});
+												contextData.setUserCart(userCart);
+											}
 										}}
 									>
 										Add to Cart
