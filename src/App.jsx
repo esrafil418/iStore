@@ -29,10 +29,8 @@ export default function App() {
 
 				<main className="pb-5">
 					<div className="container">
-						<h1 className="text-center main-title mt-4">All Products</h1>
-						{allProducts.map((product) => (
-							<ProductsSection />
-						))}
+						<h1 className="text-center main-title">All Products</h1>
+						<ProductsSection />
 					</div>
 				</main>
 				<Toast />

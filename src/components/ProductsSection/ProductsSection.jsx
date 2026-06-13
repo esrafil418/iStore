@@ -1,8 +1,49 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import "./ProductsSection.css";
 import productsContext from "../../contexts/ProductsContext";
-export default function ProductsSection({ title, info }) {
+export default function ProductsSection() {
 	const contextData = useContext(productsContext);
+	const toastTimeoutRef = useRef(null);
+
+	const addToCart = (product) => {
+		contextData.setIsShowToast(true);
+
+		if (toastTimeoutRef.current) {
+			clearTimeout(toastTimeoutRef.current);
+		}
+		toastTimeoutRef.current = setTimeout(() => {
+			contextData.setIsShowToast(false);
+			toastTimeoutRef.current = null;
+		}, 2500);
+
+		let isInUserCart = contextData.userCart.some(
+			(bagProduct) => bagProduct.title === product.title,
+		);
+
+		if (!isInUserCart) {
+			let newUserCartProduct = {
+				id: contextData.userCart.length + 1,
+				title: product.title,
+				price: product.price,
+				count: 1,
+			};
+
+			contextData.setUserCart((prevProduct) => [
+				...prevProduct,
+				newUserCartProduct,
+			]);
+		} else {
+			let userCart = [...contextData.userCart];
+
+			userCart.map((bagProduct) => {
+				if (bagProduct.title === product.title) {
+					bagProduct.count += 1;
+					return true;
+				}
+			});
+			contextData.setUserCart(userCart);
+		}
+	};
 	return (
 		<>
 			{contextData.allProducts.map((productSection) => (
@@ -23,9 +64,13 @@ export default function ProductsSection({ title, info }) {
 									<p className="card-text fw-bold">{product.title}</p>
 									<p className="price">${product.price}</p>
 									<br />
-									<a href="#" className="btn btn-danger">
+									<button
+										type="button"
+										className="btn btn-danger"
+										onClick={() => addToCart(product)}
+									>
 										Add to Cart
-									</a>
+									</button>
 									<a
 										href="#"
 										className="btn btn-outline-dark mt-3 text-capitalize"
