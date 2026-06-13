@@ -4,6 +4,7 @@ import ProductsSection from "./components/ProductsSection/ProductsSection";
 import products from "./data/products";
 import { useState } from "react";
 import Toast from "./components/Toast/Toast";
+import Cart from "./components/Cart/Cart";
 
 export default function App() {
 	const [allProducts, setAllProducts] = useState(products);
@@ -20,6 +21,7 @@ export default function App() {
 				</div>
 			</main>
 			<Toast />
+			<Cart />
 		</div>
 	);
 }
