@@ -14,7 +14,7 @@ export default function ProductsSection({ title }) {
 						/>
 					</div>
 					<div className="card-body text-center">
-						<p className="card-text">Samsung A51</p>
+						<p className="card-text fw-bold">Samsung A51</p>
 						<p className="price">$1200</p>
 						<br />
 						<a href="#" className="btn btn-danger">
@@ -23,7 +23,7 @@ export default function ProductsSection({ title }) {
 						<a href="#" className="btn btn-outline-dark mt-3 text-capitalize">
 							More Information
 						</a>
-						<p className="number mt-2">Number: 15</p>
+						<p className="number mt-3">Number: 15</p>
 					</div>
 				</div>
 			</div>
