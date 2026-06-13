@@ -11,7 +11,7 @@ export default function Cart() {
 					Bag
 				</span>
 				<span>
-					<AiOutlineClose className="close-icon"/>
+					<AiOutlineClose className="close-icon" />
 				</span>
 			</h3>
 
@@ -29,7 +29,7 @@ export default function Cart() {
 							<p className="card-text">Samsung A51</p>
 							<p className="price">$12000</p>
 							<br />
-							<a href="#" className="btn bg-danger">
+							<a href="#" className="btn btn-danger">
 								Buy
 							</a>
 							<a href="#" className="btn btn-outline-dark mt-3 text-capitalize">

@@ -15,7 +15,7 @@ export default function ProductsSection({ title, info }) {
 								<div className="col-12 text-center">
 									<img
 										src={product.img}
-										alt="phone"
+										alt={product.title}
 										className="card-img-top w-75"
 									/>
 								</div>

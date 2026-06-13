@@ -1,7 +1,7 @@
 .bag-sidebar {
 	position: fixed;
 	top: 0;
-	right: -200px;
+	right: -420px;
 	width: 400px;
 	height: 100vh;
 	background-color: var(--white);
