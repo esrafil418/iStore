@@ -4,7 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 export default function Cart() {
 	return (
-		<aside className="bag-sidebar active">
+		<aside className="bag-sidebar">
 			<h3 className="bag-title">
 				<span>
 					<BsBag />
