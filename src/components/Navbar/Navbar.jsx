@@ -5,13 +5,13 @@ export default function Navbar() {
 	return (
 		<nav className="navbar navbar-expand-sm py-3 d-flex">
 			<div className="container">
-				<a href="#" className="navbar-brand" aria-label="logo">
+				<a href="#" className="navbar-brand">
 					iStore
 				</a>
 
 				<ul className="navbar-nav me-auto ms-3">
 					<li className="nav-item">
-						<a href="#" className="nav-link" aria-label="navbar-link">
+						<a href="#" className="nav-link">
 							Home
 						</a>
 					</li>
