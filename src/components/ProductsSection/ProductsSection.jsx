@@ -23,7 +23,8 @@ export default function ProductsSection({ title, info }) {
 									<p className="card-text fw-bold">{product.title}</p>
 									<p className="price">${product.price}</p>
 									<br />
-									<a
+									<button
+										type="button"
 										href="javascript:void(0)"
 										className="btn btn-danger"
 										onClick={() => {
@@ -32,10 +33,22 @@ export default function ProductsSection({ title, info }) {
 											setTimeout(() => {
 												contextData.setIsShowToast(false);
 											}, 2500);
+
+											let newUserCartProduct = {
+												id: contextData.userCart.length + 1,
+												title: product.title,
+												price: product.price,
+												count: 1,
+											};
+
+											contextData.setUserCart((prevProduct) => [
+												...prevProduct,
+												newUserCartProduct,
+											]);
 										}}
 									>
 										Add to Cart
-									</a>
+									</button>
 									<a
 										href="#"
 										className="btn btn-outline-dark mt-3 text-capitalize"
